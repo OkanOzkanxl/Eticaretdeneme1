@@ -1,6 +1,5 @@
 ﻿using Eticaret.Core.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Reflection;
 
 namespace Eticaret.Data
@@ -19,14 +18,12 @@ namespace Eticaret.Data
         {
             optionsBuilder.UseSqlServer(@"Server=LUCIFER-\MSSQLSERVER05; 
                 Database=EticaretDb; Trusted_Connection=True; TrustServerCertificate=True");
-          
-
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); //çalışan dll inclasslarını bulup ayarlıyor
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); // 
             base.OnModelCreating(modelBuilder);
         }
     }
